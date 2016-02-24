@@ -30,7 +30,6 @@ app.controller('mainCtrl', function () {
         ]
     };
 
-    console.log('Scope', vm);
 
 });
 
@@ -44,15 +43,43 @@ app.directive('userInfoCard', function () {
         restrict: 'E',
         scope: {},
         bindToController: {
-            user: '='
+            user: '=person', // object to pass in.
+            initialCollapsed: '@collapsed' // only String values
         },
         controller: function () {
             var userVm = this;
+            userVm.collapsed = (userVm.initialCollapsed === 'true');
             userVm.knightMe = function (user) {
                 user.rank = 'Knight';
+            };
+
+            userVm.collapse = function () {
+                userVm.collapsed = !userVm.collapsed;
             }
         },
         controllerAs: 'userVm'
     }
 
 });
+app.directive('address', function () {
+    return {
+        restrict: 'E',
+        bindToController: true,
+        templateUrl: './templates/address.html',
+        controller: function () {
+            console.log(this);
+            var addressVm = this;
+            addressVm.test = "MArco";
+            addressVm.collapsed = false;
+
+            addressVm.collapseAddress = function () {
+                addressVm.collapsed = true;
+            };
+            addressVm.expandAddress = function () {
+                addressVm.collapsed = false;
+            };
+        },
+        controllerAs: 'addressVm'
+    }
+});
+
