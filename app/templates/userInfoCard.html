@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{ userVm.user.name}}
+    </div>
+    <div class="panel-body">
+        <div ng-show="!!userVm.user.address">
+            <h4>Address :</h4>
+            Name: {{ userVm.user.name}} <br/>
+            Address: {{ userVm.user.address.street}} <br/>
+            {{ userVm.user.address.city}} <br/>
+            {{ userVm.user.address.planet}}
+        </div>
+
+        <h4>Friends:</h4>
+        <ul>
+            <li ng-repeat="friend in userVm.user.friends">
+                {{friend }}
+            </li>
+        </ul>
+        <div ng-show="userVm.user.rank">
+            Rank: {{ userVm.user.rank }}
+        </div>
+        <button ng-show="!userVm.user.rank" class="btn btn-success"
+                ng-click="userVm.knightMe(userVm.user)"> Knight me</button>
+    </div>
+
+</div>
