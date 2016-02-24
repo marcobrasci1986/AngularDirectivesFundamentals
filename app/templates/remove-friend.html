@@ -1,0 +1,8 @@
+<span ng-hide="removeFriendVm.removing" class="glyphicon glyphicon-remove"
+      style="cursor: pointer"
+      ng-click="removeFriendVm.startRemove()"></span>
+
+<span ng-show="removeFriendVm.removing">
+    <button class="btn btn-xs btn-success" ng-click="removeFriendVm.confirmRemove()">Remove</button>
+    <button class="btn btn-xs btn-danger" ng-click="removeFriendVm.cancelRemove()">Never mind</button>
+</span>

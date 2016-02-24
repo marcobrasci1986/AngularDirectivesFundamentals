@@ -49,17 +49,53 @@ app.directive('userInfoCard', function () {
         controller: function () {
             var userVm = this;
             userVm.collapsed = (userVm.initialCollapsed === 'true');
+
             userVm.knightMe = function (user) {
                 user.rank = 'Knight';
             };
-
             userVm.collapse = function () {
                 userVm.collapsed = !userVm.collapsed;
+            };
+
+            userVm.removeFriend = function (friend) {
+                var index = userVm.user.friends.indexOf(friend);
+                if (index > -1) {
+                    userVm.user.friends.splice(index, 1);
+                }
             }
+
+
         },
         controllerAs: 'userVm'
     }
 
+});
+app.directive('removeFriend', function () {
+    return {
+        restrict: 'E',
+        templateUrl: './templates/remove-friend.html',
+        scope: {},
+        bindToController: {
+            user: '=',
+            notifyParent: '&method' // function
+        },
+        controller: function () {
+            var removeFriendVm = this;
+            console.log(this.user);
+
+            removeFriendVm.removing = false;
+            removeFriendVm.startRemove = function () {
+                removeFriendVm.removing = true;
+            };
+            removeFriendVm.cancelRemove = function () {
+                removeFriendVm.removing = false;
+            };
+            removeFriendVm.confirmRemove = function () {
+                removeFriendVm.notifyParent();
+            };
+        },
+        controllerAs: 'removeFriendVm'
+    }
 });
 app.directive('address', function () {
     return {
@@ -67,9 +103,8 @@ app.directive('address', function () {
         bindToController: true,
         templateUrl: './templates/address.html',
         controller: function () {
-            console.log(this);
+
             var addressVm = this;
-            addressVm.test = "MArco";
             addressVm.collapsed = false;
 
             addressVm.collapseAddress = function () {

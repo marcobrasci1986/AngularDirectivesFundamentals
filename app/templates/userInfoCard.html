@@ -9,13 +9,15 @@
         <ul>
             <li ng-repeat="friend in userVm.user.friends">
                 {{friend }}
+                <remove-friend user="userVm.user" method="userVm.removeFriend(friend)"></remove-friend>
             </li>
         </ul>
         <div ng-show="userVm.user.rank">
             Rank: {{ userVm.user.rank }}
         </div>
         <button ng-show="!userVm.user.rank" class="btn btn-success"
-                ng-click="userVm.knightMe(userVm.user)"> Knight me</button>
+                ng-click="userVm.knightMe(userVm.user)"> Knight me
+        </button>
     </div>
 
 </div>
