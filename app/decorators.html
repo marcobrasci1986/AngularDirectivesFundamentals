@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container" ng-controller="decoratorCtrl as vm">
+
+    <video id="vid" spacebar-support event-pause="vm.handlePause(evt);" controls preload="none">
+        <source src="video.mp4" type="video/mp4"/>
+    </video>
+
+    <div ng-repeat="message in vm.messages">
+        {{ message.text }}
+    </div>
+
+
+
+
+
+
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
