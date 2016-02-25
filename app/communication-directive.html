@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container" ng-controller="mainCtrl as vm">
+    <h1>This example show how we can communicte between directives using require</h1>
+
+    <emperor>
+        <vader>
+            <starkiller></starkiller>
+        </vader>
+    </emperor>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/ComunicationController.js"></script>
+
+</body>
+</html>
