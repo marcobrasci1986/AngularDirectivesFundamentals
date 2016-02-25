@@ -47,3 +47,19 @@ app.directive('userTile', function () {
     }
 
 });
+
+
+app.controller('fontScaleController', function () {
+    var vm = this;
+    vm.size = 150;
+});
+
+app.directive('fontScale', function () {
+    return {
+        link: function (scope, el, attrs) {
+            scope.$watch(attrs['fontScale'], function (newValue, oldValue) {
+                el.css('font-size', newValue + '%');
+            });
+        }
+    }
+});

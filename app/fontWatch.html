@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container" ng-controller="fontScaleController as vm">
+
+    <div>Unscaled text</div>
+    <div font-scale="vm.size">Some text</div>
+    <input ng-model="vm.size" />
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/ClickController.js"></script>
+</body>
+</html>
