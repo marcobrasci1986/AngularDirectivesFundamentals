@@ -82,18 +82,17 @@ app.directive('userPanel', function () {
             initialCollapsed: '@collapsed'
         },
         controller: function () {
-            var userVm = this;
-            userVm.collapsed = (userVm.initialCollapsed === 'true');
+            this.collapsed = (this.initialCollapsed === 'true');
 
-            userVm.nextState = function (evt) {
+            this.nextState = function (evt) {
                 evt.stopPropagation();
                 evt.preventDefault();
 
-                userVm.level++;
-                userVm.level = userVm.level % 4;
+                this.level++;
+                this.level = this.level % 4;
             };
-            userVm.collapse = function () {
-                userVm.collapsed = !userVm.collapsed;
+            this.collapse = function () {
+                this.collapsed = !this.collapsed;
             };
         },
         controllerAs: 'userVm'
@@ -108,21 +107,19 @@ app.directive('personInfoCard', function () {
     return {
         templateUrl: './templates/personInfoCard.html',
         restrict: 'E',
-        scope: {},
-        bindToController: {
+        scope: {
             person: '=', // object to pass in.
             initialCollapsed: '@collapsed' // only String values
         },
+        bindToController: true,
         controller: function () {
-            var personVm = this;
-            console.log('initialCollapsed %s', personVm.initialCollapsed);
-            personVm.knightMe = function (person) {
+            this.knightMe = function (person) {
                 person.rank = 'Knight';
             };
-            personVm.removeFriend = function (friend) {
-                var index = personVm.person.friends.indexOf(friend);
+            this.removeFriend = function (friend) {
+                var index = this.person.friends.indexOf(friend);
                 if (index > -1) {
-                    personVm.person.friends.splice(index, 1);
+                    this.person.friends.splice(index, 1);
                 }
             };
         },
@@ -140,7 +137,6 @@ app.directive('droidInfoCard', function () {
             initialCollapsed: '@collapsed' // only String values
         },
         controller: function () {
-            var droidVm = this;
 
         },
         controllerAs: 'droidVm'
@@ -159,17 +155,15 @@ app.directive('removeFriend', function () {
             notifyParent: '&method' // function
         },
         controller: function () {
-            var removeFriendVm = this;
-
-            removeFriendVm.removing = false;
-            removeFriendVm.startRemove = function () {
-                removeFriendVm.removing = true;
+            this.removing = false;
+            this.startRemove = function () {
+                this.removing = true;
             };
-            removeFriendVm.cancelRemove = function () {
-                removeFriendVm.removing = false;
+            this.cancelRemove = function () {
+                this.removing = false;
             };
-            removeFriendVm.confirmRemove = function () {
-                removeFriendVm.notifyParent();
+            this.confirmRemove = function () {
+                this.notifyParent();
             };
         },
         controllerAs: 'removeFriendVm'
@@ -185,14 +179,12 @@ app.directive('address', function () {
             name: '='
         },
         controller: function () {
-            var addressVm = this;
-            addressVm.collapsed = false;
-
-            addressVm.collapseAddress = function () {
-                addressVm.collapsed = true;
+            this.collapsed = false;
+            this.collapseAddress = function () {
+                this.collapsed = true;
             };
-            addressVm.expandAddress = function () {
-                addressVm.collapsed = false;
+            this.expandAddress = function () {
+                this.collapsed = false;
             };
         },
         controllerAs: 'addressVm'
