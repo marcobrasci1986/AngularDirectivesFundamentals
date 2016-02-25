@@ -10,19 +10,19 @@
         }
 
         .white {
-            background-color: white;
+            color: white;
         }
 
         .yellow {
-            background-color: yellow;
+            color: yellow;
         }
 
         .red {
-            background-color: red;
+            color: red;
         }
 
         .orange {
-            background-color: orange;
+            color: orange;
         }
 
     </style>
@@ -35,7 +35,9 @@
     <person-info-card person='vm.person2'></person-info-card>
     <droid-info-card droid='vm.droid1'></droid-info-card>
 
-    <pre>{{vm.droid1 | json}}</pre>
+
+    <pre>{{vm.person1.address | json}}</pre>
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="app.js"></script>
 

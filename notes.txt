@@ -2,8 +2,8 @@ scope: {} -> isolate scope
 bindToController -> make vars/objects available on the 'this' object
 
 bindToController: {
-            user: '=person', // object to pass in.
-            initialCollapsed: '@collapsed' // only String values,
+            user: '=person', // object to pass in. 2 way binding
+            initialCollapsed: '@collapsed' // only String values, one way bind
             notifyParent: '&method' // pass in a function
 }
 
