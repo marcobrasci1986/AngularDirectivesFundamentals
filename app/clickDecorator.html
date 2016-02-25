@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .hilight {
+            color: red
+        }
+    </style>
+
+</head>
+<body class="container"
+      ng-controller="clickController as vm"
+      my-click='vm.clickHandler(vm.data)'>
+    <h1>This example show how we can decorate ng-click</h1>
+
+    <h2>{{ vm.data.message }}</h2>
+
+    <hr/>
+    <user-tile user="vm.user1"></user-tile>
+
+    <pre>{{vm.user1 | json}}</pre>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/ClickController.js"></script>
+
+</body>
+</html>

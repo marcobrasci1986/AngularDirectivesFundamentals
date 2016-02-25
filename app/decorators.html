@@ -8,6 +8,8 @@
 </head>
 <body class="container" ng-controller="decoratorCtrl as vm">
 
+    <h1>This example show how we can extend functionality to an video element.</h1>
+    <p>Press spacebar to pause and unpause the video</p>
     <video id="vid" spacebar-support event-pause="vm.handlePause(evt);" controls preload="none">
         <source src="video.mp4" type="video/mp4"/>
     </video>
