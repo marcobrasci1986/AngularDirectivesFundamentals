@@ -21,12 +21,12 @@ app.controller('mainCtrl', function () {
         address: {
             street: 'Kerkstraat',
             city: 'Brussel',
-            planet: 'Yavin 4',
+            planet: 'Yavin 4'
         },
         friends: [
             'Luke',
             'Chewbacca',
-            'Leia',
+            'Leia'
         ]
     };
 
@@ -100,7 +100,6 @@ app.directive('removeFriend', function () {
 app.directive('address', function () {
     return {
         restrict: 'E',
-        bindToController: true,
         templateUrl: './templates/address.html',
         controller: function () {
 

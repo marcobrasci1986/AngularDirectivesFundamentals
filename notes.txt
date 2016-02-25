@@ -1,0 +1,10 @@
+scope: {} -> isolate scope
+bindToController -> make vars/objects available on the 'this' object
+
+bindToController: {
+            user: '=person', // object to pass in.
+            initialCollapsed: '@collapsed' // only String values,
+            notifyParent: '&method' // pass in a function
+}
+
+decorator -> add functionality to existing element (spacebar pause on video element)
