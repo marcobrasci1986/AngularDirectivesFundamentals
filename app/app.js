@@ -13,7 +13,8 @@ app.controller('mainCtrl', function () {
             'Han',
             'Leia',
             'Chewbacca'
-        ]
+        ],
+        level: 0
     };
 
     vm.user2 = {
@@ -27,12 +28,32 @@ app.controller('mainCtrl', function () {
             'Luke',
             'Chewbacca',
             'Leia'
-        ]
+        ],
+        level: 1
     };
 
 
 });
 
+app.directive('stateDisplay', function () {
+    return {
+        link: function (scope, el, attrs) {
+            scope.$watch(attrs['stateDisplay'], function (newVal) {
+                switch (newVal) {
+                    case 0:
+                        el.css('background-color', 'white');
+                        break;
+                    case 1:
+                        el.css('background-color', 'yellow');
+                        break;
+                    case 2:
+                        el.css('background-color', 'red');
+                        break;
+                }
+            });
+        }
+    }
+});
 /**
  * bindToController:
  * http://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html
@@ -62,8 +83,12 @@ app.directive('userInfoCard', function () {
                 if (index > -1) {
                     userVm.user.friends.splice(index, 1);
                 }
-            }
+            };
 
+            userVm.nextState = function () {
+                userVm.user.level++;
+                userVm.user.level = userVm.user.level % 3;
+            }
 
         },
         controllerAs: 'userVm'

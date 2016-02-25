@@ -8,3 +8,6 @@ bindToController: {
 }
 
 decorator -> add functionality to existing element (spacebar pause on video element)
+
+link function: -> Change html
+Access to viewModel from lin k-> http://www.bennadel.com/blog/2896-accessing-the-view-model-inside-the-link-function-when-using-controller-as-in-angularjs.htm
