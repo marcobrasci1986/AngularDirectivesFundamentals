@@ -38,18 +38,23 @@ app.controller('mainCtrl', function () {
 app.directive('stateDisplay', function () {
     return {
         link: function (scope, el, attrs) {
-            scope.$watch(attrs['stateDisplay'], function (newVal) {
-                switch (newVal) {
-                    case 0:
-                        el.css('background-color', 'white');
-                        break;
-                    case 1:
-                        el.css('background-color', 'yellow');
-                        break;
-                    case 2:
-                        el.css('background-color', 'red');
-                        break;
+            var params = attrs['stateDisplay'].split(' ');
+            var linkVar = params[0];
+
+            var classes = params.splice(1);
+            /**
+             * Save a reference to previous class, we need to remove this class
+             * @type {undefined}
+             */
+            var previousClass = undefined;
+
+            scope.$watch(linkVar, function (newVal) {
+                if (previousClass) {
+                    el.removeClass(previousClass);
                 }
+                var newClass = classes[newVal];
+                el.addClass(newClass);
+                previousClass = newClass;
             });
         }
     }
@@ -87,7 +92,7 @@ app.directive('userInfoCard', function () {
 
             userVm.nextState = function () {
                 userVm.user.level++;
-                userVm.user.level = userVm.user.level % 3;
+                userVm.user.level = userVm.user.level % 4;
             }
 
         },
