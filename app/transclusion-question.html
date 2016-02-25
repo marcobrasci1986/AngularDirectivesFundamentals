@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container" ng-controller="transclusionQuestionController as vm">
+
+    <my-question q='Where is the rebel base?'>
+        <input type="text" ng-model="vm.baseLocation" />
+    </my-question>
+
+    <my-question q='Are you my brother'>
+        <input type="radio" ng-value="true" ng-model="vm.answers.brother" /> Yes
+        <input type="radio" ng-value="false" ng-model="vm.answers.brother" /> No
+    </my-question>
+
+    <my-question q='Are these the driods'>
+        <button class="btn-lg btn-primary">No</button>
+        <button class="btn-xs btn-primary">Yes</button>
+    </my-question>
+
+
+
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/TransclusionQuestionController.js"></script>
+</body>
+</html>

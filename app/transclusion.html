@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container" ng-controller="transclusionController as vm">
+
+    <display-box>
+        <div>This is content inside</div>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+        <div>{{ vm.message }}</div>
+    </display-box>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/Transclusion.js"></script>
+</body>
+</html>
