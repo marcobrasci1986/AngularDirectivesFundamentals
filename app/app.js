@@ -2,7 +2,7 @@ var app = angular.module('app', []);
 
 app.controller('mainCtrl', function () {
     var vm = this;
-    vm.user1 = {
+    vm.person1 = {
         name: 'Luke Skywalker',
         address: {
             street: 'PO Box 123',
@@ -17,7 +17,7 @@ app.controller('mainCtrl', function () {
         level: 0
     };
 
-    vm.user2 = {
+    vm.person2 = {
         name: 'Han Solo',
         address: {
             street: 'Kerkstraat',
@@ -31,6 +31,16 @@ app.controller('mainCtrl', function () {
         ],
         level: 1
     };
+
+    vm.droid1 = {
+        name: 'R2-D2',
+        specifications: {
+            manufacturer: 'Industrial Automation',
+            type: 'Astromech',
+            productLine: 'R2 series'
+        },
+        level: 1
+    }
 
 
 });
@@ -63,36 +73,36 @@ app.directive('stateDisplay', function () {
  * bindToController:
  * http://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html
  */
-app.directive('userInfoCard', function () {
+app.directive('personInfoCard', function () {
     return {
-        templateUrl: './templates/userInfoCard.html',
+        templateUrl: './templates/personInfoCard.html',
         restrict: 'E',
         scope: {},
         bindToController: {
-            user: '=person', // object to pass in.
+            person: '=', // object to pass in.
             initialCollapsed: '@collapsed' // only String values
         },
         controller: function () {
             var userVm = this;
             userVm.collapsed = (userVm.initialCollapsed === 'true');
 
-            userVm.knightMe = function (user) {
-                user.rank = 'Knight';
+            userVm.knightMe = function (person) {
+                person.rank = 'Knight';
             };
             userVm.collapse = function () {
                 userVm.collapsed = !userVm.collapsed;
             };
 
             userVm.removeFriend = function (friend) {
-                var index = userVm.user.friends.indexOf(friend);
+                var index = userVm.person.friends.indexOf(friend);
                 if (index > -1) {
-                    userVm.user.friends.splice(index, 1);
+                    userVm.person.friends.splice(index, 1);
                 }
             };
 
             userVm.nextState = function () {
-                userVm.user.level++;
-                userVm.user.level = userVm.user.level % 4;
+                userVm.person.level++;
+                userVm.person.level = userVm.person.level % 4;
             }
 
         },
@@ -100,6 +110,35 @@ app.directive('userInfoCard', function () {
     }
 
 });
+
+app.directive('droidInfoCard', function () {
+    return {
+        templateUrl: './templates/droidInfoCard.html',
+        restrict: 'E',
+        scope: {},
+        bindToController: {
+            droid: '=', // object to pass in.
+            initialCollapsed: '@collapsed' // only String values
+        },
+        controller: function () {
+            var droidVm = this;
+            droidVm.collapsed = (droidVm.initialCollapsed === 'true');
+
+            droidVm.nextState = function () {
+                droidVm.droid.level++;
+                droidVm.droid.level = droidVm.droid.level % 4;
+            }
+            droidVm.collapse = function () {
+                droidVm.collapsed = !droidVm.collapsed;
+            };
+
+        },
+        controllerAs: 'droidVm'
+    }
+
+});
+
+
 app.directive('removeFriend', function () {
     return {
         restrict: 'E',

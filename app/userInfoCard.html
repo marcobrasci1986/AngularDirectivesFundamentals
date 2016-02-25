@@ -31,9 +31,11 @@
 <body class="container" ng-controller="mainCtrl as vm">
     <h1>This example show how we can create a reusable component</h1>
 
-    <user-info-card person='vm.user1' collapsed="true"></user-info-card>
-    <user-info-card person='vm.user2'></user-info-card>
+    <person-info-card person='vm.person1' collapsed="true"></person-info-card>
+    <person-info-card person='vm.person2'></person-info-card>
+    <droid-info-card droid='vm.droid1'></droid-info-card>
 
+    <pre>{{vm.droid1 | json}}</pre>
     <script src="bower_components/angular/angular.js"></script>
     <script src="app.js"></script>
 

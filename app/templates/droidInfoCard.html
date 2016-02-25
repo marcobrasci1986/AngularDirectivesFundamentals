@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="droidVm.collapse()">
+        {{ droidVm.droid.name}}
+    </div>
+    <div class="panel-body" state-display="droidVm.droid.level white yellow red orange" ng-hide="droidVm.collapsed">
+        <h4>Specs</h4>
+        {{ droidVm.droid.specifications.manufacturer }} -
+        {{ droidVm.droid.specifications.type }} -
+        {{ droidVm.droid.specifications.productLine }} <br/>
+
+        <button ng-click="droidVm.nextState()" class="btn btn-info">Next State</button>
+    </div>
+
+</div>
