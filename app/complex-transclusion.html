@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container" ng-controller="transcludeComplexController as vm">
+
+    <div my-lazy-render="vm.showIt" echo ng-repeat="item in vm.items">
+        {{ item }}
+    </div>
+
+    <button class="btn btn-primary" ng-click="vm.showIt = true">Render content</button>
+
+    <hr/>
+
+    <h1 class="well">Bounty hunters</h1>
+    <div user-list="hunter in vm.bountyHunters">
+        <span>Name: {{ hunter.name }}</span>
+    </div>
+    <hr/>
+    <button class="btn btn-primary" ng-click="vm.add()">Add</button>
+    <button class="btn btn-primary" ng-click="vm.remove()">Remove</button>
+
+
+
+
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/ComplexTransclusion.js"></script>
+</body>
+</html>

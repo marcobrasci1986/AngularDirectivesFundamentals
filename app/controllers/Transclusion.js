@@ -8,7 +8,7 @@ app.controller('transclusionController', function () {
 app.directive('displayBox', function ($parse) {
     return {
         restrict: 'E',
-        templateUrl: 'templates/displayBox.html',
+        templateUrl: '../templates/displayBox.html',
         controller: function () {
             var displayBoxVm = this;
 
