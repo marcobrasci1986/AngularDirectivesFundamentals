@@ -1,0 +1,29 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container" ng-controller="requireController as vm">
+    <h1>Example requiring Controllers</h1>
+
+    <sw-tabstrip>
+        <sw-pane title="Bounty Hunters">
+            <h4>We don't need that scum</h4>
+        </sw-pane>
+        <sw-pane title="Death Star">
+            <h4>That's no moon</h4>
+        </sw-pane>
+        <sw-pane title="I love you">
+            <h4>I know</h4>
+        </sw-pane>
+    </sw-tabstrip>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="./controllers/requireController.js"></script>
+
+</body>
+</html>
