@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .hilight {
+            color: red
+        }
+
+    </style>
+
+</head>
+<body class="container" ng-controller="masterDetailController as vm">
+    <h1>Communication between directives (non family) with a service</h1>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <master-users data="vm.users"></master-users>
+        </div>
+        <div class="col-xs-8">
+            <detail-users data="vm.users"></detail-users>
+        </div>
+    </div>
+
+    <pre>{{vm.users | json}}</pre>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/MasterDetailController.js"></script>
+    <script src="services/UserListStateService.js"></script>
+
+</body>
+</html>

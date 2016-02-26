@@ -17,3 +17,5 @@ link function: -> Change html
 Access to viewModel from link-> http://www.bennadel.com/blog/2896-accessing-the-view-model-inside-the-link-function-when-using-controller-as-in-angularjs.htm
 
 transclusion : questions header is the same for all questions. Input fields can vary
+
+Directives can communicate as patent-child or as siblings using the require: ^parentController syntax

@@ -1,0 +1,9 @@
+<div class="panel panel-primary" ng-repeat="user in detailVm.users" ng-show="user === detailVm.state.selectedUser">
+    <div class="panel-heading">
+        {{ user.name }}
+    </div>
+    <div class="panel-body">
+        {{ user.planet }} <br/>
+        {{ user.job }}
+    </div>
+</div>
