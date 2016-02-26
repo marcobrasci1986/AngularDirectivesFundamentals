@@ -14,7 +14,12 @@ app.controller('mainCtrl', function () {
             'Leia',
             'Chewbacca'
         ],
-        level: 0
+        level: 0,
+        hasForce: true,
+        yearsOfJediTraining: 4,
+        master: 'Yoda',
+        passedTrials: true,
+        masterApproves: true
     };
 
     vm.person2 = {
@@ -99,11 +104,14 @@ app.directive('userPanel', function () {
     }
 });
 
+
+
+
 /**
  * bindToController:
  * http://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html
  */
-app.directive('personInfoCard', function () {
+app.directive('personInfoCard', function (jediPolicyService) {
     return {
         templateUrl: './templates/personInfoCard.html',
         restrict: 'E',
@@ -114,7 +122,11 @@ app.directive('personInfoCard', function () {
         bindToController: true,
         controller: function () {
             this.knightMe = function (person) {
-                person.rank = 'Knight';
+                jediPolicyService.advanceToKnight(person).then(function (result) {
+                    console.log('Ranked to knight');
+                }, function (candidate) {
+                    alert('Sorry, ' + candidate.name + ' cannot become a knight' );
+                });
             };
             this.removeFriend = function (friend) {
                 var index = this.person.friends.indexOf(friend);
