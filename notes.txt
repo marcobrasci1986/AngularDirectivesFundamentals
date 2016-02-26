@@ -3,9 +3,13 @@ bindToController -> make vars/objects available on the 'this' object
 
 bindToController: {
             user: '=person', // object to pass in. 2 way binding
-            initialCollapsed: '@collapsed' // only String values, one way bind
+            initialCollapsed: '@collapsed' // one way bind
             notifyParent: '&method' // pass in a function
 }
+
+oneWay: '@',
+twoWay: '=',
+expr: '&'
 
 decorator -> add functionality to existing element (spacebar pause on video element)
 

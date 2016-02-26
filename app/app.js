@@ -109,7 +109,7 @@ app.directive('personInfoCard', function () {
         restrict: 'E',
         scope: {
             person: '=', // object to pass in.
-            initialCollapsed: '@collapsed' // only String values
+            initialCollapsed: '@collapsed' // only String values, one way
         },
         bindToController: true,
         controller: function () {

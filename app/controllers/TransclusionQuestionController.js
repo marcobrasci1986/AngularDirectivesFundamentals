@@ -10,6 +10,7 @@ app.directive('myQuestion', function () {
         restrict: 'E',
         transclude: true,
         templateUrl: 'templates/myQuestion.html',
+        scope: {},
         bindToController: {
             questionText: '@q'
         },

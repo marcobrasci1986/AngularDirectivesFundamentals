@@ -66,11 +66,14 @@ app.directive('userList', function () {
         }
     }
 });
-
+/**
+ * transclude: 'element' -> initial rendering is a comment: <!-- myLazyRender: vm.showIt -->
+ * In the link function you can render that html with the clone object
+ */
 app.directive('myLazyRender', function () {
     return {
         restrict: 'A',
-        transclude: 'element',
+        transclude: 'element', // element is not rendred
         priority: 1200,
         link: function (scope, el, attrs, controller, transclude) {
             var hasBeenShown = false;
@@ -78,6 +81,7 @@ app.directive('myLazyRender', function () {
                 if (newValue && !hasBeenShown) {
                     hasBeenShown = true;
                     transclude(scope, function (clone) {
+                        // clone: html
                         el.after(clone);
                     });
                     unwatchFn();
