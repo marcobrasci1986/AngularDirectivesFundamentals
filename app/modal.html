@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="container" ng-controller="mainModalController as vm">
+    <h1>Modal</h1>
+
+    <h1>Modal Sample</h1>
+    <a ng-click="vm.openModal()">Click Here</a>
+    <modal open="vm.modalOpen" options="{top:35, height:300}" on-close="vm.modelClosed(response)">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Are you sure?</div>
+            <div class="panel-body">
+                <div class="btn btn-success" ng-click="vm.close('yes')">Yes</div>
+                <div class="btn btn-success" ng-click="vm.close('no')">No</div>
+            </div>
+        </div>
+    </modal>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/MainModalController.js"></script>
+
+</body>
+</html>

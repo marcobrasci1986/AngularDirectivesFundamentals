@@ -9,7 +9,7 @@ bindToController: {
 
 oneWay: '@',
 twoWay: '=',
-expr: '&'
+expr: '&' -> function
 
 decorator -> add functionality to existing element (spacebar pause on video element)
 
