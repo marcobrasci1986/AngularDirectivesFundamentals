@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="container" ng-controller="mainModalController as vm">
-    <h1>Modal</h1>
-
     <h1>Modal Sample</h1>
     <a ng-click="vm.openModal()">Click Here</a>
     <modal open="vm.modalOpen" options="{top:35, height:300}" on-close="vm.modelClosed(response)">

@@ -1,7 +1,7 @@
 <user-panel name="{{ personVm.person.name }}"
             collapsed="{{ personVm.initialCollapsed }}"
             level="personVm.person.level"
-           >
+>
 
     <address name="personVm.person.name" person-address="personVm.person.address"></address>
     <h4>Friends:</h4>
@@ -16,6 +16,19 @@
         Rank: {{ personVm.person.rank }}
     </div>
     <button ng-show="!personVm.person.rank" class="btn btn-success"
-            ng-click="personVm.knightMe(personVm.person)"> Knight me
+            ng-click="personVm.knightMe()"> Knight me
     </button>
+
+    <modal open="personVm.showKnightModel"
+           options="{width: '100px', left:'40px'}"
+           on-close="personVm.knightModelDone(response)">
+
+        <div class="panel panel-primary">Jedi Knight</div>
+        <div class="panel-body">
+            <p>Are you sure? {{ personVm.person.name }}</p>
+
+            <button class="btn btn-success" ng-click="personVm.knightDialogDone(true)">Yes</button>
+            <button class="btn btn-danger" ng-click="personVm.knightDialogDone(false)">No</button>
+        </div>
+    </modal>
 </user-panel>

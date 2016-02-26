@@ -121,13 +121,22 @@ app.directive('personInfoCard', function (jediPolicyService) {
         },
         bindToController: true,
         controller: function () {
-            this.knightMe = function (person) {
-                jediPolicyService.advanceToKnight(person).then(function (result) {
-                    console.log('Ranked to knight');
-                }, function (candidate) {
-                    alert('Sorry, ' + candidate.name + ' cannot become a knight' );
-                });
+            this.knightMe = function () {
+                this.showKnightModel = true;
+
             };
+
+            this.knightDialogDone = function (response) {
+                this.showKnightModel = false;
+                if(response){
+                    jediPolicyService.advanceToKnight(this.person).then(function (result) {
+                        console.log('Ranked to knight');
+                    }, function (candidate) {
+                        alert('Sorry, ' + candidate.name + ' cannot become a knight');
+                    });
+                }
+            }
+            
             this.removeFriend = function (friend) {
                 var index = this.person.friends.indexOf(friend);
                 if (index > -1) {

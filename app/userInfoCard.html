@@ -27,6 +27,7 @@
 
     </style>
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="container" ng-controller="mainCtrl as vm">
     <h1>This example show how we can create a reusable component</h1>
@@ -38,8 +39,10 @@
 
     <pre>{{vm.person1.address | json}}</pre>
 
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="app.js"></script>
+    <script src="controllers/MainModalController.js"></script>
     <script src="./services/JediPolicyService.js"></script>
 
 </body>

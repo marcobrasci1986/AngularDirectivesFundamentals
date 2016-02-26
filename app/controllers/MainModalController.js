@@ -4,14 +4,19 @@ app.controller('mainModalController', function () {
 
     vm.openModal = function () {
         vm.modalOpen = true;
+    };
+    
+    vm.modalClosed = function (response) {
+        vm.close('no');
+    };
+
+    vm.close = function (response) {
+        vm.modalOpen = false;
+        console.log('modal closed', response);
     }
 
 });
 
-app.controller('modalController', function () {
-    var modalVm = this;
-
-});
 
 app.directive('modal', function ($document) {
     return {
@@ -19,13 +24,16 @@ app.directive('modal', function ($document) {
         transclude: true,
         templateUrl: 'templates/modal.html',
         scope: {
-            modalOpen: '=open',
+            modalOpen: '=open', //two way binding, is kept in sync with vm.modalOpen
             options: '=',
             onClose: '&' // function
         },
         bindToController: true,
         controller: function () {
-            console.log(this.modalOpen);
+            this.close = function () {
+                this.modalOpen = false;
+                this.onClose();
+            }
         },
         link: function (scope, el, attrs, controller) {
             var options = angular.extend({
